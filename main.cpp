@@ -418,17 +418,18 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dnsseed.bluematt.me", "bitseed.xf2.org", "dnsseed.titcoin.dashjr.org", "seed.titcoin.sipa.be", ""};
-static const string testnet_seeds[] = {"testnet-seed.alexykot.me",
-                                       "testnet-seed.titcoin.petertodd.org",
-                                       "testnet-seed.bluematt.me",
-                                       "testnet-seed.titcoin.schildbach.de",
-                                       ""};
+static const string mainnet_seeds[] = {""}; // none yet
+static const string testnet_seeds[] = {""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("kjy2eqzk4zwi5zd3.onion", 8333), true);
+    // currently known IPs since we don't have any stable DNS seeds yet!
+    db.Add(CService("112.213.37.20", 8698), true); // Cminor
+    db.Add(CService("95.217.78.80", 8698), true);
+    db.Add(CService("64.227.29.51", 8698), true);
+    db.Add(CService("62.171.190.193", 8698), true);
+    db.Add(CService("159.203.80.106", 8698), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
