@@ -1,7 +1,7 @@
-bitcoin-seeder
+titcoin-seeder
 ==============
 
-Bitcoin-seeder is a crawler for the Bitcoin network, which exposes a list
+Titcoin-seeder is a crawler for the Titcoin network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
